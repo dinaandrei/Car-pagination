@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  fetch = () => {
+    fetch(`http://9d3034ef-c7be-4b82-bb93-3758b3df6bdb.pub.cloud.scaleway.com/api/v1/car/?format=json`, {
+      method:'get'
+    }).then(res => res.json())
+      .then(response =>console.log(response))
+      .catch(error => console.error('Error:', error));
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <h1>First title of app</h1>
+        {this.fetch()}
       </div>
     );
   }
