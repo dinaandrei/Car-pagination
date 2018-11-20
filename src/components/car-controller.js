@@ -29,7 +29,6 @@ class CarController extends Component {
             method: 'get'
         }).then(res => res.json())
             .then(response => {
-                console.log(response);
                 this.setState({
                     itemsCountPerPage: response.meta.limit,
                     totalItemsCount: response.meta.total_count,
@@ -51,7 +50,6 @@ class CarController extends Component {
 
     handlePageChange = (pageNumber) => {
         let quickUri = null;
-        console.log(pageNumber, this.state.activePage)
         if (pageNumber === this.state.pageNumber - 1) {
             quickUri = this.props.previous;
         } else if (pageNumber === this.state.activePage + 1) {
@@ -60,7 +58,6 @@ class CarController extends Component {
         this.setState({ activePage: pageNumber },
             () => {
                 const uri = this.determineUri(quickUri);
-                console.log(quickUri, uri);
                 this.fetchData(uri);
             }
         );

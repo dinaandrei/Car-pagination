@@ -8,7 +8,7 @@ const car = (props) => {
         const stats = Object.entries(props.carStats);
         return stats.map(element => 
             element[0] !== 'name' && element[0] !== 'id' && element[0] !== 'img' &&
-            <div className={`element`}>
+            <div key={`${element[0]}pa${element[1]}nt${props.carStats.id}`} className={`element`}>
                 <span style={{ fontWeight: 'bold' }}> {element[0]} </span> 
                 : 
                 {element[0]}
