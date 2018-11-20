@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import Pagination from "react-js-pagination";
 import Cars from './cars/';
 
-require("bootstrap/less/bootstrap.less");
-
+import "bootstrap/less/bootstrap.less";
 
 const url = 'http://9d3034ef-c7be-4b82-bb93-3758b3df6bdb.pub.cloud.scaleway.com';
 
