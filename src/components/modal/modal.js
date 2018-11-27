@@ -4,7 +4,6 @@ import CarEdit from '../cars/car-edit';
 
 export default class ModalCar extends React.Component {
 
-
     render() {
         return (
             <Modal open={this.props.isActive} onClose={this.props.handleClose} center>

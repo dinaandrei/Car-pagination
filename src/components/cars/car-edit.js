@@ -41,11 +41,15 @@ class CarEit extends React.Component {
         )
     )
 
+    handleSubmit = () => {
+        this.props.handleSubmit(this.state.form);
+    }
+
     render() {
         return (
             <div className="car-edit">
                 {this.mapStats()}
-                <button onClick={this.props.handleSubmit}>Submit</button>
+                <button onClick={this.handleSubmit}>Submit</button>
             </div>
         );
     }

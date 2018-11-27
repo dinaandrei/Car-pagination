@@ -26,8 +26,9 @@ class Cars extends PureComponent{
         })
     }
 
-    handleSubmit = () => {
-        console.log("pressed in modal")
+    handleSubmit = (data) => {
+        this.props.handleSubmit(data);
+        this.handleClose();
     }
 
     mapCars = () => (
@@ -41,6 +42,7 @@ class Cars extends PureComponent{
                 <Modal 
                     {...this.state}
                     handleClose={this.handleClose}
+                    handleSubmit={this.handleSubmit}
                 />
             </div>
         );
