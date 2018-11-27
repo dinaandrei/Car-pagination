@@ -1,38 +1,43 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import logo  from '../../car.jpg';
 
-const car = (props) => {
+class Car extends PureComponent {
 
-    const definitor = () => {
-        const stats = Object.entries(props.carStats);
+    definitor = () => {
+        const stats = Object.entries(this.props.carStats);
         return stats.map(element => 
-            element[0] !== 'name' && element[0] !== 'id' && element[0] !== 'img' &&
-            <div key={`${element[0]}pa${element[1]}nt${props.carStats.id}`} className={`element`}>
+            element[0] !== 'name' && element[0] !== 'id' && element[0] !== 'resource_uri' &&
+            <div key={`${element[0]}pa${element[1]}nt${this.props.carStats.id}`} className={`element`}>
                 <span style={{ fontWeight: 'bold' }}> {element[0]} </span> 
                 : 
-                {element[0]}
+                {element[1]}
             </div>
         )
     }
 
-    return (
-        <div className="car">
+    handleClick = () => {
+        this.props.handleClick(this.props.carStats);
+    }
+
+    render = () => (
+        <div onClick={this.handleClick} className="car">
             <img className="car__img" src={logo} alt="unavailable_image"/>
             <div className="car__content">
-                <h2>{props.carStats.name}</h2>
+                <h2>{this.props.carStats.name}</h2>
                 <div className="car__stats">
-                    {definitor()}
+                    {this.definitor()}
                 </div>
             </div>
         </div>
-    );
+    )
 };
 
-car.propTypes = {
+Car.propTypes = {
     carStats: PropTypes.object.isRequired,
+    handleClick: PropTypes.func,
 };
-car.defaultProps = {
+Car.defaultProps = {
     carStats: {
         acceleration: 'unavailable',
         cylinders: 'unavailable',
@@ -43,8 +48,8 @@ car.defaultProps = {
         name: 'unavailable',
         weight: 'unavailable',
         year: 'unavailable',
-        img: '../../car.jpg',
     },
+    handleClick:() => {}
 }
 
-export default car;
+export default Car;
