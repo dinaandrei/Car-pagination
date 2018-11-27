@@ -17,6 +17,7 @@
     margin-left:2.5em;
     margin-top:2.5em;
     overflow: hidden;
+    cursor: pointer;
 
     -webkit-box-shadow: 4px -2px 33px -7px rgba(0,0,0,1);
     -moz-box-shadow: 4px -2px 33px -7px rgba(0,0,0,1);
